@@ -1,15 +1,15 @@
 import './App.css'
+import Blogs from './Components/Blogs/Blogs'
+import Header from './Components/Header/Header'
 
 function App() {
   
 
   return (
-    <>
-      
-      <h1 className='text-lg'>Knowledge Cafe</h1>
-     
-      
-    </>
+    <div className='w-9/12 mx-auto my-7'>
+    <Header></Header>
+    <Blogs></Blogs>
+    </div>
   )
 }
 
