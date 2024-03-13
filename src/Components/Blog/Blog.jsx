@@ -2,7 +2,7 @@ import vector from '../../assets/images/Vector.png'
 import PropTypes from "prop-types";
 const Blog = ({ blog ,handleAddToBookmarks,handleMarkAsRead }) => {
   // console.log(blog);
-  const {title,cover,reading_time,posted_date,author,author_img,hashtags} = blog;
+  const {title,cover,reading_time,posted_date,author,author_img,hashtags,id} = blog;
   return (
     <div className="mb-14 border-b-2 pb-6">
       <img
@@ -32,7 +32,7 @@ const Blog = ({ blog ,handleAddToBookmarks,handleMarkAsRead }) => {
             <span key={idx} className="mr-3 "><a href="">#{hash}</a></span>)
         }
       </p>
-      <button onClick={()=>handleMarkAsRead(reading_time)} className='font-bold text-[#6047EC] underline leading-normal'>
+      <button onClick={()=>handleMarkAsRead(reading_time,id)} className='font-bold text-[#6047EC] underline leading-normal'>
         <span >Mark as read</span>
       </button>
       
