@@ -1,7 +1,7 @@
 import vector from '../../assets/images/Vector.png'
 import PropTypes from "prop-types";
-const Blog = ({ blog ,handleAddToBookmarks }) => {
-  console.log(blog);
+const Blog = ({ blog ,handleAddToBookmarks,handleMarkAsRead }) => {
+  // console.log(blog);
   const {title,cover,reading_time,posted_date,author,author_img,hashtags} = blog;
   return (
     <div className="mb-14 border-b-2 pb-6">
@@ -32,6 +32,10 @@ const Blog = ({ blog ,handleAddToBookmarks }) => {
             <span key={idx} className="mr-3 "><a href="">#{hash}</a></span>)
         }
       </p>
+      <button onClick={()=>handleMarkAsRead(reading_time)} className='font-bold text-[#6047EC] underline leading-normal'>
+        <span >Mark as read</span>
+      </button>
+      
     </div>
   );
 };
@@ -40,5 +44,6 @@ export default Blog;
 
 Blog.propTypes = {
   blog: PropTypes.object.isRequired,
-  handleAddToBookmarks:PropTypes.func.isRequired
+  handleAddToBookmarks:PropTypes.func.isRequired,
+  handleMarkAsRead:PropTypes.func.isRequired
 };

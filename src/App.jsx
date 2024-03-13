@@ -10,12 +10,20 @@ function App() {
     const newBookmarks=[...bookmarks,blog]
     setBookmarks(newBookmarks)
   };
+
+  const [readingTime,setReadingTime]=useState(0)
+
+  const handleMarkAsRead = time =>{
+    const newReadingTime= readingTime + parseInt (time)
+    setReadingTime(newReadingTime)
+  }
+
   return (
     <div className="lg:w-10/12 w-11/12 mx-auto my-7">
       <Header></Header>
       <div className="lg:flex mt-7 gap-12">
-        <Blogs handleAddToBookmarks={handleAddToBookmarks}></Blogs>
-        <Bookmarks bookmarks={bookmarks}></Bookmarks>
+        <Blogs handleMarkAsRead={handleMarkAsRead} handleAddToBookmarks={handleAddToBookmarks}></Blogs>
+        <Bookmarks readingTime={readingTime} bookmarks={bookmarks}></Bookmarks>
       </div>
     </div>
   );
